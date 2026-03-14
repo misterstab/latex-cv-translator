@@ -22,33 +22,46 @@ On first launch, the app initializes a base CV from [template.tex](template.tex)
 - Persistent configuration in `.cv_config.json` (generated automatically).
 - Synchronization index in `.cv_translation_index.json` (generated automatically).
 
-## Prerequisites
+## User Guide
+
+### Prerequisites
 
 - Python 3.10+
 - A [DeepL API account and API key](https://www.deepl.com/en/pro#developer) (Free or Pro)
 
-## Installation
+### Installation
 
-1. Create and activate a virtual environment.
+Unless explicitly stated otherwise, run all commands below in a terminal.
+
+1. Clone the repository and enter the project folder.
+
+```bash
+git clone https://github.com/misterstab/latex-cv-translator
+cd latex-cv-translator
+```
+
+2. Create and activate a virtual environment.
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-2. Install dependencies.
+3. Install dependencies.
 
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Create an [.env](.env) file at the project root.
+4. Create an [.env](.env) file at the project root.
+
+Write the following line inside the file :
 
 ```env
 DEEPL_API_KEY=your_deepl_api_key_here
 ```
 
-4. Test that the DeepL API key works.
+5. Test that the DeepL API key works.
 
 ```bash
 python scripts/deepl_api_key_test.py
@@ -56,13 +69,13 @@ python scripts/deepl_api_key_test.py
 
 If the API key is valid, the script should print a translated sample.
 
-## Run
+### Run
 
 ```bash
 python main.py
 ```
 
-## First Launch
+### First Launch
 
 At first startup, the app:
 - asks for the main CV language;
@@ -71,7 +84,7 @@ At first startup, the app:
 - if the main language is not FR, translates the template into that language;
 - saves configuration in `.cv_config.json`.
 
-## Daily Usage
+### Daily Usage
 
 Main menu:
 - use arrow keys to select `Translate CV to another language`, `Show configuration`, or `Quit`.
@@ -86,7 +99,48 @@ When you choose a target language:
 - it rebuilds the target file without retranslating unchanged segments;
 - it updates `.cv_translation_index.json`.
 
-## Important Files
+### Finish your setup
+
+Once translation is generated, you can compile the output `.tex` files from the language subfolders inside [cv](cv).
+
+Recommended local workflow:
+- Use the [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) extension in VS Code.
+- Open the relevant language folder in [cv](cv), then build the target file (for example [cv/fr/cv_fr.tex](cv/fr/cv_fr.tex)).
+
+Terminal alternative:
+
+```bash
+cd cv/fr
+pdflatex -interaction=nonstopmode -halt-on-error cv_fr.tex
+```
+
+Online alternative:
+- Upload the generated `.tex` file (and required assets) to [Overleaf](https://www.overleaf.com).
+
+### Notes DeepL
+
+- Some DeepL languages require specific variants.
+- Language options are requested from DeepL API at runtime.
+- Internal alias mapping converts `EN` to `EN-US`.
+- Internal alias mapping converts `PT` to `PT-PT`.
+
+### Known Limitations
+
+- Some acronyms may be translated incorrectly depending on context. Review important abbreviations manually (for example, degree names, certifications, and organization-specific short forms).
+- The tool preserves manual edits in a target language file as long as source segments in the native language file remain unchanged.
+- If LaTeX structure is heavily edited manually in a target file, reconstruction differences may appear.
+- LaTeX comments (`% ...`) are not translated.
+
+### Troubleshooting
+
+- Error `DEEPL_API_KEY is missing`: check that [.env](.env) exists and contains `DEEPL_API_KEY`.
+- DeepL API error: verify that your API key is valid and active.
+- No changes after translation: this is expected if the source CV was not modified.
+- Reset from scratch: delete `.cv_config.json`, `.cv_translation_index.json`, and generated files inside [cv](cv), then run [main.py](main.py) again.
+
+## Developer Guide
+
+### Important Files
 
 - [main.py](main.py): thin entrypoint.
 - [template.tex](template.tex): CV template used on first launch.
@@ -95,7 +149,7 @@ When you choose a target language:
 - [.cv_config.json](.cv_config.json): source language and source file (generated).
 - [.cv_translation_index.json](.cv_translation_index.json): incremental tracking per target language (generated).
 
-## Project Structure
+### Project Structure
 
 The codebase is organized as a Python package for better maintainability:
 
@@ -149,27 +203,7 @@ Structure overview:
 - [src/cv_translator/constants.py](src/cv_translator/constants.py): centralized paths and language constants.
 - [src/cv_translator/models.py](src/cv_translator/models.py): data models.
 
-## Notes DeepL
-
-- Some DeepL languages require specific variants.
-- Language options are requested from DeepL API at runtime.
-- Internal alias mapping converts `EN` to `EN-US`.
-- Internal alias mapping converts `PT` to `PT-PT`.
-
-## Known Limitations
-
-- The tool preserves manual edits in a target language file as long as source segments in the native language file remain unchanged.
-- If LaTeX structure is heavily edited manually in a target file, reconstruction differences may appear.
-- LaTeX comments (`% ...`) are not translated.
-
-## Troubleshooting
-
-- Error `DEEPL_API_KEY is missing`: check that [.env](.env) exists and contains `DEEPL_API_KEY`.
-- DeepL API error: verify that your API key is valid and active.
-- No changes after translation: this is expected if the source CV was not modified.
-- Reset from scratch: delete `.cv_config.json`, `.cv_translation_index.json`, and generated files inside [cv](cv), then run [main.py](main.py) again.
-
-## Useful Commands
+### Useful Commands
 
 Quick script compilation:
 
@@ -194,21 +228,3 @@ python3 -m unittest discover -s test -v
 This project is open source and distributed under the GNU General Public License, version 3 or any later version.
 
 See [LICENSE](LICENSE) for the full license text.
-
-## Finish your setup
-
-Once translation is generated, you can compile the output `.tex` files from the language subfolders inside [cv](cv).
-
-Recommended local workflow:
-- Use the [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) extension in VS Code.
-- Open the relevant language folder in [cv](cv), then build the target file (for example [cv/fr/cv_fr.tex](cv/fr/cv_fr.tex)).
-
-Terminal alternative:
-
-```bash
-cd cv/fr
-pdflatex -interaction=nonstopmode -halt-on-error cv_fr.tex
-```
-
-Online alternative:
-- Upload the generated `.tex` file (and required assets) to [Overleaf](https://www.overleaf.com).
