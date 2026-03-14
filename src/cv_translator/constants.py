@@ -48,7 +48,7 @@ TARGET_LANG_ALIASES = {
 FORCE_SOURCE_LANGUAGE = False
 
 # Keep translation payload/result logging configurable from one place.
-DEBUG_TRANSLATION = True
+DEBUG_TRANSLATION = False
 
 # Bump this when segmentation or exception rules change so target files are retranslated once.
 TRANSLATION_ENGINE_VERSION = "2026-03-14-inline-commands-v3"
