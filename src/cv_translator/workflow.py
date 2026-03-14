@@ -22,6 +22,8 @@ from .ui import choose_language_by_kind
 
 
 def first_run_setup() -> dict:
+    """Initialize configuration and create the first native CV file."""
+
     print("First launch setup")
     native_lang = choose_language_by_kind(
         "Choose your native CV language:",
@@ -64,6 +66,8 @@ def first_run_setup() -> dict:
 
 
 def load_or_create_config() -> dict:
+    """Load existing config or create it, including path migration handling."""
+
     config = load_json(CONFIG_PATH, {})
     if config.get("native_lang") and config.get("native_file"):
         ensure_cv_dir()
@@ -87,6 +91,8 @@ def load_or_create_config() -> dict:
 
 
 def build_equal_mapping(old_hashes: list[str], new_hashes: list[str]) -> dict[int, int]:
+    """Map unchanged segment indices from old hashes to new hashes."""
+
     mapping: dict[int, int] = {}
     matcher = SequenceMatcher(a=old_hashes, b=new_hashes)
 
@@ -99,6 +105,8 @@ def build_equal_mapping(old_hashes: list[str], new_hashes: list[str]) -> dict[in
 
 
 def translate_incremental(config: dict) -> None:
+    """Translate only modified segments and preserve unchanged target content."""
+
     native_lang = config["native_lang"]
     native_file = resolve_configured_cv_path(config["native_file"])
 
@@ -179,5 +187,7 @@ def translate_incremental(config: dict) -> None:
 
 
 def show_config(config: dict) -> None:
+    """Print current application configuration in JSON format."""
+
     print("\nCurrent configuration")
     print(json.dumps(config, indent=2, ensure_ascii=False))

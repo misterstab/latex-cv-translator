@@ -13,6 +13,8 @@ def choose_language_by_kind(
     allow_skip: bool = False,
     kind: str = "target",
 ) -> str | None:
+    """Prompt the user to select a valid language code for source or target."""
+
     languages = get_available_languages(kind=kind)
 
     print(f"\n{prompt}")
@@ -40,6 +42,8 @@ def choose_language_by_kind(
 
 
 def choose_main_menu_action() -> str:
+    """Return the main menu action code selected by the user."""
+
     options = [
         "Translate CV to another language",
         "Show configuration",
@@ -67,6 +71,8 @@ def choose_main_menu_action() -> str:
 
         if curses is not None:
             def _run_menu(stdscr: "curses.window") -> str:
+                """Render and control the fallback curses-based main menu."""
+
                 curses.curs_set(0)
                 selected = 0
 

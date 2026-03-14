@@ -37,10 +37,14 @@ INLINE_TEXT_COMMANDS = {
 
 
 def hash_text(value: str) -> str:
+    """Return a stable hash for a text segment used in incremental sync."""
+
     return hashlib.sha1(value.encode("utf-8")).hexdigest()
 
 
 def get_document_window(content: str) -> tuple[int, int]:
+    """Return the content boundaries to parse inside the LaTeX document body."""
+
     start_marker = r"\begin{document}"
     end_marker = r"\end{document}"
 
@@ -54,6 +58,8 @@ def get_document_window(content: str) -> tuple[int, int]:
 
 
 def _consume_balanced(content: str, i: int, end: int, opener: str, closer: str) -> int:
+    """Advance cursor past a balanced bracketed expression."""
+
     if i >= end or content[i] != opener:
         return i
 
@@ -77,6 +83,8 @@ def _consume_balanced(content: str, i: int, end: int, opener: str, closer: str) 
 
 
 def _advance_inline_command(content: str, i: int, end: int) -> int | None:
+    """Advance over inline text commands that should stay attached to content."""
+
     if i >= end or content[i] != "\\":
         return None
 
@@ -114,6 +122,8 @@ def _advance_inline_command(content: str, i: int, end: int) -> int | None:
 
 
 def _advance_latex_command(content: str, i: int, end: int) -> int:
+    """Advance cursor over a generic LaTeX command and selected arguments."""
+
     j = i + 1
     if j < end and content[j].isalpha():
         while j < end and content[j].isalpha():
@@ -152,6 +162,8 @@ def _advance_latex_command(content: str, i: int, end: int) -> int:
 
 
 def _consume_text_chunk(content: str, i: int, end: int) -> int:
+    """Consume a contiguous chunk considered translatable text."""
+
     while i < end:
         current = content[i]
 
@@ -176,6 +188,8 @@ def _consume_text_chunk(content: str, i: int, end: int) -> int:
 
 
 def extract_translatable_segments(content: str) -> list[Segment]:
+    """Extract line-oriented translatable segments from LaTeX source content."""
+
     segments: list[Segment] = []
     start, end = get_document_window(content)
     i = start
@@ -229,6 +243,8 @@ def extract_translatable_segments(content: str) -> list[Segment]:
 
 
 def stitch_content(base_content: str, segments: list[Segment], replacements: list[str]) -> str:
+    """Rebuild full content by replacing extracted segments with new text."""
+
     if len(segments) != len(replacements):
         raise ValueError("Segments and replacements length mismatch.")
 

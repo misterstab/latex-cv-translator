@@ -8,6 +8,8 @@ def print_translation_pipeline(
     raw_result_texts: list[str],
     final_texts: list[str],
 ) -> None:
+    """Print each translation stage for debugging when debug mode is enabled."""
+
     if not DEBUG_TRANSLATION:
         return
 

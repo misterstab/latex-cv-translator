@@ -5,6 +5,8 @@ from .constants import CV_DIR, ROOT
 
 
 def load_json(path: Path, default: dict) -> dict:
+    """Load JSON content from disk and return a fallback on failure."""
+
     if not path.exists():
         return default
     try:
@@ -15,15 +17,21 @@ def load_json(path: Path, default: dict) -> dict:
 
 
 def save_json(path: Path, data: dict) -> None:
+    """Persist dictionary data as formatted UTF-8 JSON."""
+
     with path.open("w", encoding="utf-8") as file:
         json.dump(data, file, indent=2, ensure_ascii=False)
 
 
 def ensure_cv_dir() -> None:
+    """Ensure the root directory for generated CV files exists."""
+
     CV_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def build_cv_filename(lang_code: str) -> Path:
+    """Return the output path for a language-specific CV file."""
+
     ensure_cv_dir()
     lang_dir = CV_DIR / lang_code.lower()
     lang_dir.mkdir(parents=True, exist_ok=True)
@@ -31,6 +39,8 @@ def build_cv_filename(lang_code: str) -> Path:
 
 
 def resolve_configured_cv_path(native_file: str) -> Path:
+    """Resolve configured native file paths across supported legacy layouts."""
+
     configured = Path(native_file)
     if configured.is_absolute():
         return configured
