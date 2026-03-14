@@ -1,0 +1,31 @@
+# Python cache and bytecode
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+
+# Secrets
+.env
+
+# App runtime state
+.cv_config.json
+.cv_translation_index.json
+
+# Generated CV files
+cv/*.tex
+cv_*.tex
+
+# LaTeX build artifacts
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+
+# Optional generated PDFs
+*.pdf

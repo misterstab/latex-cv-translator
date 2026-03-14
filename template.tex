@@ -1,0 +1,154 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[left=1.5cm,right=1.5cm,top=1.5cm,bottom=1.5cm]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{sectsty}
+\usepackage{textcomp} % Pour les exposants en mode texte
+\usepackage{titlesec}
+\usepackage{fontawesome5}
+
+\titleformat{\section}
+{\vspace{-4pt}\scshape\raggedright\large} % Format : police, alignement, taille
+    {} % Étiquette (numérotation, vide ici)
+    {0em} % Séparation entre l'étiquette et le titre
+    {} % Code avant le titre (vide ici)
+    [\titlerule\vspace{-5pt}] % Code après le titre : ligne horizontale
+
+
+\subsectionfont{\fontsize{12pt}{14pt}\selectfont} % Taille de 12pt pour les sous-sections
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubheadingNoDot}[4]{
+  \vspace{-1pt}\item[]
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+
+
+
+
+
+\begin{document}
+
+% En-tête
+\begin{center}
+    \textbf{\fontsize{18pt}{20pt}\selectfont Hugo LE ROY} \\
+    \vspace{0.3cm}
+    \begin{tabular}{@{} c c c @{}}
+        \faEnvelope\ \ \href{mailto:hugo.le-roy@student-cs.fr}{hugo.le-roy@student-cs.fr} &
+        \faPhone\ \href{tel:+33648876456}{+33 6 48 87 64 56} &
+        \faLinkedin\ \ \href{https://www.linkedin.com/in/h-le-roy}{www.linkedin.com/in/h-le-roy}
+    \end{tabular}
+\end{center}
+
+
+% Section principale
+\section*{Élève-ingénieur en 2\textsuperscript{ème} année à CentraleSupélec}
+Je cherche un stage de 6 mois dans un laboratoire de recherche académique à partir de septembre 2026 ou mars 2027.
+%en R\&D
+Mon intérêt se porte particulièrement sur les mathématiques, l’algorithmique, l'informatique et la physique, ainsi que sur leurs applications pratiques.
+
+\begin{minipage}[t]{0.23\textwidth}
+    % Langues et certifications
+    \section*{Langues}
+    \begin{itemize}[leftmargin=*,noitemsep]
+        \item Français (Natif)
+        \item Anglais (Maîtrisé)
+        \item Espagnol (Notions)
+        \item Chinois (Débutant)
+    \end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.70\textwidth}
+    % Logiciels et programmation
+    \section*{Logiciels \& programmation}
+\vspace{-5pt}
+\begin{tabular}{@{}llll@{}}
+\textbf{Programmation} & \textbf{Web} & \textbf{CAO} & \textbf{Quantique} \\
+Python, Matlab, & React Native, Express, & Fusion 360 & Qiskit\\
+Arduino, PyTorch & MongoDB, php & &\\
+\end{tabular}
+\vspace{-5pt}
+
+\end{minipage}
+
+
+% Parcours pédagogique
+\section*{Parcours pédagogique}
+
+\resumeSubHeadingListStart
+    \resumeSubheading
+      {CentraleSupélec -- Université Paris-Saclay}{Gif-sur-Yvette}
+      {Ingénieur généraliste.}{Sept. 2024 -- Présent}
+      \resumeItemListStart
+      \resumeItem{Cours électifs}{Programmation, algorithmes et optimisation quantique, Physique quantique et statistique, Distributions et opérateurs, Physique des ondes, Systèmes Électroniques, Mécanique des milieux continus, Science des transferts.}
+      \resumeItemListEnd
+    \resumeSubheading
+        {Lycée Blaise Pascal}{Orsay}{
+        Classe préparatoire aux grandes écoles en mathématiques et physique -- CPGE MP.}{Sept. 2022 -- Juil. 2024}
+  \resumeSubHeadingListEnd
+
+% Expériences professionnelles
+\section*{Expérience professionnelle}
+\resumeSubHeadingListStart
+\resumeSubheadingNoDot
+{Stellantis, Usine terminale de Poissy -- Stage Ouvrier de 5 semaines}{Poissy}
+      {Rangement de pièces de carrosserie sur une chaîne de production à l’emboutissage.}{Juil. 2025}
+\resumeSubHeadingListEnd
+
+% Projets
+
+\section*{Projets}
+\resumeSubHeadingListStart
+\resumeSubItem{Génération d'une base de données d'images histopathologiques (Jan. 2025 -- Jan. 2026)}{Conception et implémentation d'un modèle de diffusion (DDPM, IDDPM, DDIM). Le meilleur FID obtenu est 13,64 pour 100 steps d'inférence avec DDIM (images 50x50). Collaboration avec une équipe de 4 personnes en anglais.}
+\resumeSubItem{Optimisation de la distribution de matériel absorbant dans une chambre semi-anéchoïque (Nov. 2025)}{Modélisation et résolution numérique d'équations aux dérivées partielles (EDP) pour réduire les coûts des chambres anéchoïques et améliorer leurs atténuation en basse fréquence. Obtention de performances similaires aux chambres usuelles avec 70\% de matériel absorbant en moins en simulation.}
+\resumeSubItem{Programmation des stratégies de navigation d'un robot démineur (Juin 2025)}{Automatisation d'un robot (TurtleBot) avec le protocole réseau Zenoh en collaboration avec une équipe de 5 personnes. Le robot détecte et réagit aux mines identifiées par QR code (chasse ou évitement).}
+\resumeSubItem{Surveillance d'un glacier au Pérou grâce à des données satellitaires (Jan. 2025)}{Traitement et analyse de données satellitaires avec Google Earth Engine (GEE) et le logiciel SNAP (ESA), afin d’étudier et anticiper les dynamiques d’évolution glaciaire.}
+\resumeSubItem{Hackathon (Nov. 2024)}{Conception et implémentation d’un logiciel léger de simulation de diffusion thermique adapté à des géométries quelconques en 2D. Hackathon de 1 semaine en équipe de 5.}
+\resumeSubHeadingListEnd
+
+% Engagements associatifs
+\section*{Engagements associatifs \& personnels}
+\begin{itemize}[leftmargin=*,noitemsep]
+    \item Association Sportive de Basketball de CentraleSupélec.
+    \item Winter Association CentraleSupélec (WACS) : création d'une application mobile de A à Z pour enrichir l'expérience des participants au voyage de ski : le Pistus.
+    \item Dual diplôme L3 Magistère de Mathématiques avec l'Université Paris Saclay en parallèle du cursus de CentraleSupélec.
+    \item Maison Des Lycéens du lycée Camille Claudel à Palaiseau : organisation d'une soirée caritative, \textit{"Un Don Pour du Son"}, avec une équipe de 15 personnes.
+\end{itemize}
+
+% Sports
+\section*{Sports \& Loisirs}
+Basketball (pendant plus de 15 ans), Randonnée
+
+\end{document}
