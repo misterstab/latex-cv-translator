@@ -1,8 +1,8 @@
 # CV Translator CLI (LaTeX + DeepL)
 
-A command-line application to translate a LaTeX CV into multiple languages with DeepL.
+A CLI tool to translate LaTeX CVs to almost any language with high-quality DeepL translations, incremental updates, and manual edit preservation.
 
-DeepL can be used for free as long as you stay within the Free API quota (500,000 characters per month).
+It is free to use until the DeepL Free API quota is reached (500,000 characters per month).
 Rough equivalence: this is typically around 80 to 150 full CV translations, depending on CV length.
 For example, with a CV around 3,500 to 6,000 characters, 500,000 characters gives about 140 to 83 translations.
 
@@ -74,10 +74,7 @@ At first startup, the app:
 ## Daily Usage
 
 Main menu:
-- use arrow keys to select:
-- `Translate CV to another language`
-- `Show configuration`
-- `Quit`
+- use arrow keys to select `Translate CV to another language`, `Show configuration`, or `Quit`.
 
 Language selection:
 - type a language code shown in the list (for example `FR`, `DE`, `EN-US`, `PT-BR`).
@@ -95,8 +92,8 @@ When you choose a target language:
 - [template.tex](template.tex): CV template used on first launch.
 - [requirements.txt](requirements.txt): Python dependencies.
 - [.env](.env): DeepL API key.
-- `.cv_config.json`: source language and source file (generated).
-- `.cv_translation_index.json`: incremental tracking per target language (generated).
+- [.cv_config.json](.cv_config.json): source language and source file (generated).
+- [.cv_translation_index.json](.cv_translation_index.json): incremental tracking per target language (generated).
 
 ## Project Structure
 
@@ -128,10 +125,10 @@ translation-code/
 │   ├── test_storage.py
 │   └── test_workflow.py
 └── cv/
-	├── fr/
-	│   └── cv_fr.tex
-	└── en-us/
-		└── cv_en-us.tex
+    ├── fr/
+    │   └── cv_fr.tex
+    └── en-us/
+        └── cv_en-us.tex
 ```
 
 Structure overview:
@@ -191,6 +188,12 @@ Run the regression test suite:
 ```bash
 python3 -m unittest discover -s test -v
 ```
+
+## License
+
+This project is open source and distributed under the GNU General Public License, version 3 or any later version.
+
+See [LICENSE](LICENSE) for the full license text.
 
 ## Finish your setup
 
