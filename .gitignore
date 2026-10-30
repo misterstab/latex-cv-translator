@@ -29,3 +29,5 @@ cv_*.tex
 
 # Optional generated PDFs
 *.pdf
+
+.DS_Store
