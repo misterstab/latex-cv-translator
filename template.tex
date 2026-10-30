@@ -65,18 +65,25 @@
 \begin{center}
     \textbf{\fontsize{18pt}{20pt}\selectfont Hugo LE ROY} \\
     \vspace{0.3cm}
-    \begin{tabular}{@{} c c c @{}}
+    \begin{tabular}{@{} c c c c @{}}
         \faEnvelope\ \ \href{mailto:hugo.le-roy@student-cs.fr}{hugo.le-roy@student-cs.fr} &
         \faPhone\ \href{tel:+33648876456}{+33 6 48 87 64 56} &
-        \faLinkedin\ \ \href{https://www.linkedin.com/in/h-le-roy}{www.linkedin.com/in/h-le-roy}
+        \faLinkedin\ \ \href{https://www.linkedin.com/in/h-le-roy}{linkedin.com/in/h-le-roy} &
+        \faGithub\ \ \href{https://github.com/misterstab}{misterstab} \\
     \end{tabular}
 \end{center}
 
 
 % Section principale
 \section*{Élève-ingénieur en 2\textsuperscript{ème} année à CentraleSupélec}
-Je cherche un stage de 6 mois en recherche et développement à partir de septembre 2026 ou mars 2027.
-Mon intérêt se porte particulièrement sur les mathématiques, l’algorithmique, l'informatique et la physique, ainsi que sur leurs applications pratiques.
+%Je cherche un stage de 6 mois en recherche et développement à partir d'août ou septembre 2026. % ou mars 2027.
+%Mon intérêt se porte particulièrement sur les mathématiques, l’algorithmique, l'informatique et la physique, ainsi que sur leurs applications pratiques.
+
+%Je recherche un stage de six mois en recherche et développement à partir d'août ou septembre 2026 dans les domaines de l'informatique, des mathématiques appliquées, de la physique quantique ou de la robotique.
+
+%Je recherche un stage de six mois en recherche et développement à partir de septembre 2026 dans les domaines de l'informatique, de la robotique ou des mathématiques appliquées.
+Je recherche un stage de recherche de cinq ou six mois à partir de mars 2027 en science des matériaux.
+
 
 \begin{minipage}[t]{0.23\textwidth}
     % Langues et certifications
@@ -94,9 +101,10 @@ Mon intérêt se porte particulièrement sur les mathématiques, l’algorithmiq
     \section*{Logiciels \& programmation}
 \vspace{-5pt}
 \begin{tabular}{@{}llll@{}}
-\textbf{Programmation} & \textbf{Web} & \textbf{CAO} & \textbf{Quantique} \\
-Python, Matlab, & React Native, Express, & Fusion 360 & Qiskit\\
-Arduino, PyTorch & MongoDB, php & &\\
+\textbf{Programmation} & \textbf{Web} & \textbf{Simulation} & \textbf{Autre}\\
+Python, Matlab, & React (Native), & Isaac Lab,& Linux, Qiskit\\
+Arduino, & Express, MongoDB, & Genesis, FreeCad & Zenoh, Conda \\
+Rust (débutant) & php, nginx, Dioxus & Fusion 360 & \\
 \end{tabular}
 \vspace{-5pt}
 
@@ -108,46 +116,64 @@ Arduino, PyTorch & MongoDB, php & &\\
 
 \resumeSubHeadingListStart
     \resumeSubheading
-      {CentraleSupélec -- Université Paris-Saclay}{Gif-sur-Yvette}
-      {Ingénieur généraliste.}{Sept. 2024 -- Présent}
+      {CentraleSupélec -- Université Paris-Saclay}{Gif-sur-Yvette, France}
+      {Ingénieur généraliste.}{Sept. 2024 -- Juil. 2027}
       \resumeItemListStart
-      \resumeItem{Cours électifs}{Programmation, algorithmes et optimisation quantique, Physique quantique et statistique, Distributions et opérateurs, Physique des ondes, Systèmes Électroniques, Mécanique des milieux continus, Science des transferts.}
+      \resumeItem{Cours spécifiques}
+      % Mettre en avant l'informatique
+      %{Algorithmique; Informatique théorique; Programmation, algorithmes et optimisation quantique; Modélisation et commande des systèmes dynamiques; Physique quantique et statistique; Distributions et opérateurs; Probabilités; Physique des ondes; Systèmes Électroniques (FPGA); Mécanique des milieux continus; Science des transferts; Radio logicielle; Traitement du signal.}
+      % Mettre en avant la physique
+      {Physique quantique et statistique; Physique des ondes; Mécanique des milieux continus; Science des transferts; ; Probabilités; Algorithmique; Modélisation et commande des systèmes dynamiques; Systèmes électroniques (FPGA); Radio logicielle; Traitement du signal; Informatique théorique; Programmation, algorithmes et optimisation quantique; Distributions et opérateurs.}
       \resumeItemListEnd
     \resumeSubheading
-        {Lycée Blaise Pascal}{Orsay}{
+        {Lycée Blaise Pascal}{Orsay, France}{
         Classe préparatoire aux grandes écoles en mathématiques et physique -- CPGE MP.}{Sept. 2022 -- Juil. 2024}
   \resumeSubHeadingListEnd
 
 % Expériences professionnelles
 \section*{Expérience professionnelle}
 \resumeSubHeadingListStart
-\resumeSubheadingNoDot
-{Stellantis, Usine terminale de Poissy -- Stage Ouvrier de 5 semaines}{Poissy}
+\resumeSubheading{Alatyr -- Assemblage robotique dans l'espace}{St.Germain en Laye, France}
+{Ingénieur roboticien spécialisé en apprentissage par renforcement (RL).}{Août 2026 -- Aujourd'hui}
+\resumeItemListStart
+\resumeItem{Développement d'algorithme d'apprentissage par renforcement}{Recherche littéraire sur l'état de l'art et implémentation de méthodes modernes : PPO, CAPS. La policy alors entraînée est capable de s'insérer dans un end effector avec succès.}
+\resumeItem{Sim-to-Real}{Déployement avec succès de politiques visant a s'insérer dans un end effector à l'aide de caméras et de capteurs de couples 6 axes.}
+\resumeItem{Identification dynamique de robots}{Création et réalisation d'un protocole d'identification des paramètres de bases d'un robot à 6 degrés de liberté. Cela a permis de révéler des erreurs dans le modèle constructeur.}
+\resumeItem{Verification formelle de code}{Mise en place d'un méthode de développement assisté par LLMs assez robuste pour garantir la sécurité de code critique.}
+\resumeItem{Vision lidar}{Développement d'une couche de sécurité à l'aide d'un lidar. Calibration automatique à partir du modèle du robot. Détection d'incohérences dans la scène de l'ordre du bruit du capteur.}
+\resumeItem{Construction et modélisation d'un banc d'essai}{skjfdhzukefh}
+\resumeItemListEnd
+
+\resumeSubheading
+{Stellantis, Usine terminale de Poissy -- Stage Ouvrier de 5 semaines}{Poissy, France}
       {Rangement de pièces de carrosserie sur une chaîne de production à l’emboutissage.}{Juil. 2025}
 \resumeSubHeadingListEnd
 
 % Projets
 
-\section*{Projets}
+\section*{Sélection de Projets}
 \resumeSubHeadingListStart
-\resumeSubItem{Génération d'une base de données d'images histopathologiques (Jan. 2025 -- Jan. 2026)}{Conception et implémentation d'un modèle de diffusion (DDPM, IDDPM, DDIM). Le meilleur FID obtenu est 13,64 pour 100 steps d'inférence avec DDIM (images 50x50). Collaboration avec une équipe de 4 personnes en anglais.}
-\resumeSubItem{Optimisation de la distribution de matériel absorbant dans une chambre semi-anéchoïque (Nov. 2025)}{Modélisation et résolution numérique d'équations aux dérivées partielles (EDP) pour réduire les coûts des chambres anéchoïques et améliorer leurs atténuation en basse fréquence. Obtention de performances similaires aux chambres usuelles avec 70\% de matériel absorbant en moins en simulation.}
-\resumeSubItem{Programmation des stratégies de navigation d'un robot démineur (Juin 2025)}{Automatisation d'un robot (TurtleBot) avec le protocole réseau Zenoh en collaboration avec une équipe de 5 personnes. Le robot détecte et réagit aux mines identifiées par QR code (chasse ou évitement).}
-\resumeSubItem{Surveillance d'un glacier au Pérou grâce à des données satellitaires (Jan. 2025)}{Traitement et analyse de données satellitaires avec Google Earth Engine (GEE) et le logiciel SNAP (ESA), afin d’étudier et anticiper les dynamiques d’évolution glaciaire.}
+\resumeSubItem{Apprentissage par renforcement appliqué au lancer par un robot QArm (Fév. 2026 - Aujourd'hui)}{Modélisation de la dynamique d'un robot à 4 degrés de liberté et implémentation d'un algorithme d'apprentissage par renforcement pour lui apprendre à lancer un object dans une cible. Projet en cours.}
+\resumeSubItem{Valeur à risque conditionnelle (CVaR) dans des algorithmes quantiques variationnels (Fév. - Mars 2026)}{Implémentation d'un benchmark complet pour tester l'efficacité de la CVaR pour QAOA et VQE, avec différents optimiseurs (Recuit simulé, Powell, COBYLA, NEWUOA,...) et différents problèmes d'optimisation combinatoire (MaxCut, Maximum Independent Set, Max-MultiCut). Les résultats sont en adéquation avec la littérature. Projet supervisé par Orange.}
+\resumeSubItem{Génération d'une base de données d'images histopathologiques avec de l'IA générative (Jan. 2025 -- Jan. 2026)}{Conception et implémentation d'un modèle de diffusion (DDPM, IDDPM, DDIM). Le meilleur FID obtenu est 13,64 pour 100 steps d'inférence avec DDIM (images 50x50). Collaboration avec une équipe de 4 personnes en anglais. Supervisé par des chercheurs du CVN.}
+\resumeSubItem{Optimisation de la distribution de matériel absorbant dans une chambre semi-anéchoïque (Nov. 2025)}{Modélisation et résolution numérique d'équations aux dérivées partielles pour réduire les coûts des chambres anéchoïques et améliorer leurs atténuation en basse fréquence. Obtention de performances similaires aux chambres usuelles avec 70\% de matériel absorbant en moins en simulation.}
+%\resumeSubItem{Programmation des stratégies de navigation d'un robot démineur (Juin 2025)}{Automatisation d'un robot (TurtleBot) avec le protocole réseau Zenoh en collaboration avec une équipe de 5 personnes. Le robot détecte et réagit aux mines identifiées par QR code (chasse ou évitement).}
+%\resumeSubItem{Surveillance d'un glacier au Pérou grâce à des données satellitaires (Jan. 2025)}{Traitement et analyse de données satellitaires avec Google Earth Engine (GEE) et le logiciel SNAP (ESA), afin d’étudier et anticiper les dynamiques d’évolution glaciaire.}
 \resumeSubItem{Hackathon (Nov. 2024)}{Conception et implémentation d’un logiciel léger de simulation de diffusion thermique adapté à des géométries quelconques en 2D. Hackathon de 1 semaine en équipe de 5.}
 \resumeSubHeadingListEnd
 
 % Engagements associatifs
 \section*{Engagements associatifs \& personnels}
 \begin{itemize}[leftmargin=*,noitemsep]
-    \item Association Sportive de Basketball de CentraleSupélec.
-    \item Winter Association CentraleSupélec (WACS) : création d'une application mobile de A à Z pour enrichir l'expérience des participants au voyage de ski : le Pistus.
-    \item Dual diplôme L3 Magistère de Mathématiques avec l'Université Paris Saclay en parallèle du cursus de CentraleSupélec.
+    \item Basketball (pendant plus de 15 ans), Association Sportive de Basketball de CentraleSupélec. Randonnée.
+    \item Winter Association CentraleSupélec (WACS) : création d'une application mobile de A à Z pour enrichir l'expérience des 400 participants au voyage de ski de l'école : le Pistus.
+    \item Dual diplôme (2024-2025): Par curiosité scientifique, j'ai suivi et obtenu la licence du Magistère de Mathématiques de l'Université Paris Saclay en parallèle du cursus de CentraleSupélec.
     \item Maison Des Lycéens du lycée Camille Claudel à Palaiseau : organisation d'une soirée caritative, \textit{"Un Don Pour du Son"}, avec une équipe de 15 personnes.
 \end{itemize}
 
 % Sports
-\section*{Sports \& Loisirs}
-Basketball (pendant plus de 15 ans), Randonnée
+%\section*{Sports \& Loisirs}
+%Basketball (pendant plus de 15 ans), Randonnée
 
 \end{document}
+
